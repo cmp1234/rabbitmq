@@ -1,4 +1,4 @@
-FROM rabbitmq:alpine
+FROM hicloudcmp/rabbitmq:3.6.10-alpine
 
 RUN rabbitmq-plugins enable --offline rabbitmq_management
 
