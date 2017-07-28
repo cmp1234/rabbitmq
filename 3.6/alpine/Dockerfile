@@ -42,6 +42,7 @@ RUN set -ex; \
 	\
 	apk add --no-cache --virtual .build-deps \
 		ca-certificates \
+		curl \
 		gnupg \
 		libressl \
 		tar \
@@ -70,6 +71,8 @@ RUN set -ex; \
 	grep -qE '^SYS_PREFIX=\$\{RABBITMQ_HOME\}$' "$RABBITMQ_HOME/sbin/rabbitmq-defaults"; \
 	sed -ri 's!^(SYS_PREFIX=).*$!\1!g' "$RABBITMQ_HOME/sbin/rabbitmq-defaults"; \
 	grep -qE '^SYS_PREFIX=$' "$RABBITMQ_HOME/sbin/rabbitmq-defaults"; \
+	\
+	wget -O $RABBITMQ_HOME/plugins/autocluster-0.8.0.ez https://github.com/rabbitmq/rabbitmq-autocluster/releases/download/0.8.0/autocluster-0.8.0.ez; \
 	\
 	apk del .build-deps
 
