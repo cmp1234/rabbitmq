@@ -73,6 +73,7 @@ RUN set -ex; \
 	grep -qE '^SYS_PREFIX=$' "$RABBITMQ_HOME/sbin/rabbitmq-defaults"; \
 	\
 	wget -O $RABBITMQ_HOME/plugins/autocluster-0.8.0.ez https://github.com/rabbitmq/rabbitmq-autocluster/releases/download/0.8.0/autocluster-0.8.0.ez; \
+	wget -O $RABBITMQ_HOME/plugins/rabbitmq_aws-0.8.0.ez https://github.com/rabbitmq/rabbitmq-autocluster/releases/download/0.8.0/rabbitmq_aws-0.8.0.ez; \
 	\
 	apk del .build-deps
 
