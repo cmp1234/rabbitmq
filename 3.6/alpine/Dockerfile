@@ -1,4 +1,4 @@
-FROM cmp1234/alpine-base:3.6
+FROM cmp1234/alpine-bash
 
 # add our user and group first to make sure their IDs get assigned consistently, regardless of whatever dependencies get added
 RUN addgroup -S -g 18345 rabbitmq && adduser -S -u 18345 -h /var/lib/rabbitmq -G rabbitmq rabbitmq
@@ -7,8 +7,6 @@ RUN addgroup -S -g 18345 rabbitmq && adduser -S -u 18345 -h /var/lib/rabbitmq -G
 RUN apk add --no-cache 'su-exec>=0.2'
 
 RUN apk add --no-cache \
-# Bash for docker-entrypoint
-		bash \
 # Procps for rabbitmqctl
 		procps \
 # Erlang for RabbitMQ
